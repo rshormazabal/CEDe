@@ -1,18 +1,17 @@
 import re
 from collections import Counter
-from typing import Union
-import pandas as pd
 from io import BytesIO
+from typing import Union
+from xml.dom import minidom
 
-import numpy as np
-from PIL import ImageDraw
-from rdkit import Chem
-from rdkit.Chem import rdmolops, Draw
-import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from PIL import Image
 from cairosvg import svg2png
-from xml.dom import minidom
+from rdkit import Chem
+from rdkit.Chem import rdmolops, Draw
 
 # mapping for rdkit object classes
 bond_stereo_mappings = {Chem.rdchem.BondStereo.STEREOANY: 'STEREOANY',
@@ -234,13 +233,12 @@ def plot_annotations_from_coco(image_data, instances_data):
     plt.show()
 
 
-
 def plot_instances(instances, svg):
     """
-
-    :param instances:
-    :param svg:
-    :return:
+    Plot instances from SVG str.
+    :param instances: Instances data. [pd.DataFrame]
+    :param svg: SVG string. [str]
+    :return: None.
     """
     # Create figure and axes
     fig, ax = plt.subplots()
