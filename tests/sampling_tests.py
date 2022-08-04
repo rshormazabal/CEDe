@@ -1,6 +1,8 @@
 import unittest
+
 from hydra import compose, initialize
-from data_sampling import PubchemData
+
+from sampling.data_sampling import PubchemData
 
 
 class SamplerTestCases(unittest.TestCase):

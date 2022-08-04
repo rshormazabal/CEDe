@@ -39,3 +39,7 @@ typing_extensions==4.3.0
 unicodedata2 @ file:///home/conda/feedstock_root/build_artifacts/unicodedata2_1649111910890/work
 webencodings==0.5.1
 wget==3.2
+
+matplotlib~=3.5.3
+numpy~=1.23.2
+Pillow~=9.2.0

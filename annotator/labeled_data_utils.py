@@ -1,16 +1,17 @@
 import json
 from pathlib import Path
+from zipfile import ZipFile
 
-import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from matplotlib import ticker
 from matplotlib.patches import Rectangle
-import numpy as np
 from rdkit import Chem
 from rdkit.Chem.Draw import rdMolDraw2D
 from tqdm import tqdm
-from data_utils import get_mol_metadata
-from zipfile import ZipFile
+
+from annotator.data_utils import get_mol_metadata
 
 molfile_extensions = {'JPO': 'sdf',
                       'USPTO': 'MOL',
@@ -98,10 +99,6 @@ class LabeledData:
             self.images['molfile_name'] = self.images.index.str.replace('png', molfile_extensions[dataset_name])
             mols = self.images.molfile_name.apply(lambda x: Chem.MolFromMolFile(str(self.root_path / gt_data_path / x)))
             self.metadata = pd.DataFrame([get_mol_metadata(Chem.MolToSmiles(m)) for m in mols], index=mols.index)
-
-        for i in range(220, len(mols)):
-            if not isinstance(mols[i].GetNumAtoms(), int):
-                print(i)
 
     def plot_predictions_from_labels(self, filepath, annotations, metadata, save_fig=False, output_dir=None, ticks=False):
         """

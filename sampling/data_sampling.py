@@ -1,6 +1,6 @@
 ########
 # Samples data from PubChem Library.
-# Filters data depending on list of atoms to keep and characters (for example, SMILES having stereo information).
+# Filters data depending on list of atoms to keep, characters and other metadata (for example, SMILES having stereo information).
 # Created by Rodrigo Hormazabal, 2022.
 ########
 
@@ -13,7 +13,8 @@ import wget
 from pqdm.processes import pqdm
 from termcolor import cprint
 from tqdm import tqdm
-from data_utils import get_mol_metadata
+
+from annotator.data_utils import get_mol_metadata
 
 download_links = {'CID-SMILES': 'https://ftp.ncbi.nlm.nih.gov/pubchem/Compound/Extras/CID-SMILES.gz',
                   'CID-InChI': 'https://ftp.ncbi.nlm.nih.gov/pubchem/Compound/Extras/CID-InChI.gz'}

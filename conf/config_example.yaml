@@ -1,0 +1,88 @@
+# pubchem dataset download parameters
+root_folder: ./
+annotations_json_filename: annotations.json
+sampling:
+  data_path: data/
+  dataset_name: SMILES
+  download: null
+  load_pickle: False
+  pickle_filename: mol_metadata.pkl
+
+  # n jobs for metadata parallel
+  n_jobs: 8
+
+  # number of rows to read out of pubchem file
+  pubchem_nrows: 5000000
+  max_number_data: 10000
+
+  # parameters to filter cases
+  sequence_filters:
+    # SMILES compounds containing these characters are kept. However, other token are also
+    # included in final annotations, since they can be contained within these structures.
+    chars_to_keep:
+        - "\\@"
+        - "@@"
+        - "@"
+        - /
+        - "\\\\"
+        - "\\+"
+        - "\\-"
+    atoms_to_keep:
+        - F
+        - Cl
+        - N
+        - Br
+        - Li
+        - Al
+        - P
+        - S
+        - I
+        - H
+        - B
+        - Si
+        - Na
+        - K
+        - Mg
+        - Ca
+        - Ti
+        - Mn
+        - Fe
+        - Co
+        - Ni
+        - Cu
+        - Zn
+        - Se
+    # SMILES compounds containing these characters will be removed.
+    chars_to_drop:
+        - "\\."
+    max_len: 500
+    min_len: 10
+
+  metadata_filters:
+    max_atoms: 50
+
+generation:
+  generated_data_folder: data/synthetic_data/
+  pseudo_type: 'given' # ['R', 'random', 'given']
+  pseudo_prob: 0.5
+  img_size: 768
+  n_jobs: 8
+  pseudoatoms_lib_path: /data/pseudoatoms_lib.csv
+  bbox_margin: [15, 16]
+  non_letter_carbon_margin: [30, 31]
+  aug_sample_params:
+    linewidth_range: [2, 10]
+    font_size_range: [15, 50]
+    rotation_angle_range: [-45, 45]
+    xy_sheer_range: [0.6, 1]
+    fonts_path: ./data/fonts/
+coco_dataset_metadata:
+  description: DESCRIPTION
+  url: URL
+  version: VERSION
+  year: 2022
+  contributor: CONTRIBUTOR
+  creation_date: CREATION_DATA
+  license_url: LICENSE_URL
+  license_name: LICENSE_NAME
+global_seed: 1213
