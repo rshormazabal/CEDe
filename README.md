@@ -56,6 +56,7 @@ is fully contained in bigger versions).
 ## Getting Started
 
 ### Prerequisites
+First, RDKit must be installed following [RDKit installation](https://www.rdkit.org/docs/Install.html).
 * PIP
   ```sh
   git clone https://github.com/rshormazabal/CEDe.git
@@ -132,7 +133,7 @@ global_seed: Global seed for the project (sets numpy, pandas, random, torch, etc
 ```
 
 ## How to run
-After installing dependencies, you can generate data by specifying a config file.
+After installing dependencies, you can generate data by specifying a hydra config filename in `main_generation.py`.
 For specificying specific parameters directly on the CLI, refer to [Hydra documentation](https://hydra.cc/docs/intro/).
 ```sh
 python main_generation.py <HYDRA OPTIONS>
