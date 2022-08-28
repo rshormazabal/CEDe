@@ -62,7 +62,7 @@ sampling:
     max_atoms: 50
 
 generation:
-  generated_data_folder: data/synthetic_data/
+  generated_data_folder: data/generated_data/
   pseudo_type: 'given' # ['R', 'random', 'given']
   pseudo_prob: 0.5
   img_size: 768
