@@ -13,6 +13,8 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from indigo import Indigo
+from indigo.renderer import IndigoRenderer
 from omegaconf import DictConfig
 from rdkit import Chem
 from rdkit.Chem import Draw, rdmolops
@@ -23,6 +25,10 @@ from tqdm import tqdm
 from annotator.data_utils import bond_type_mappings, get_svg_instances
 
 warnings.filterwarnings(action='ignore')
+indigo_engine = Indigo()
+rend = IndigoRenderer(indigo_engine)
+indigo_engine.setOption("render-image-height", 768)
+indigo_engine.setOption("render-image-width", 768)
 
 
 def pseudoatom_possible_idx(smiles):

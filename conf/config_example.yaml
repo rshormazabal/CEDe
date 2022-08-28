@@ -12,8 +12,8 @@ sampling:
   n_jobs: 8
 
   # number of rows to read out of pubchem file
-  pubchem_nrows: 5000000
-  max_number_data: 10000
+  pubchem_nrows: 500000
+  max_number_data: 100000
 
   # parameters to filter cases
   sequence_filters:
