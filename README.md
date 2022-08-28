@@ -135,11 +135,11 @@ global_seed: Global seed for the project (sets numpy, pandas, random, torch, etc
 After installing dependencies, you can generate data by specifying a config file.
 For specificying specific parameters directly on the CLI, refer to [Hydra documentation](https://hydra.cc/docs/intro/).
 ```sh
-python main_generation.py --config_file <path_to_config_file>
+python main_generation.py <HYDRA OPTIONS>
 ```
 ##### Example
 ```sh
-python main_generation.py --config_file ./conf/config_example.yaml --generation.pubchem_nrows 100000 --generation.max_number_data 10000
+python main_generation.py sampling.pubchem_nrows=1000000 sampling.max_number_data=5000000 generation.pseudo_prob=0.8
 ```
 
 ## License
