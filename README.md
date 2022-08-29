@@ -146,4 +146,4 @@ python main_generation.py sampling.pubchem_nrows=1000000 sampling.max_number_dat
 ## License
 
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
-https://creativecommons.org/licenses/by-nc/2.0/legalcode
+https://creativecommons.org/licenses/by-nc/4.0/legalcode
